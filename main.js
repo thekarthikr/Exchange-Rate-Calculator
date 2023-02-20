@@ -6,12 +6,6 @@ rateElement = document.getElementById('rate'),
 swapElement = document.getElementById('swap')
 
 
-
-
-
-
-
-
 function calculate(){
  const currencyOneValue = currencyElementOne.value;
  const currencyTwoValue = currencyElementTwo.value;

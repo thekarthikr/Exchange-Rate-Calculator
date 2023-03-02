@@ -6,22 +6,46 @@ rateElement = document.getElementById('rate'),
 swapElement = document.getElementById('swap')
 
 
-function calculate(){
- const currencyOneValue = currencyElementOne.value;
- const currencyTwoValue = currencyElementTwo.value;
+const apiUrl = 'https://api.frankfurter.app';
 
- fetch(`https://v6.exchangerate-api.com/v6/eb9ef8de7f5019cef27265a3/latest/${currencyOneValue}`)
-  .then(res => res.json())
-  .then (data =>{
-    
-     console.log(data)
-     const currencyRate = data.conversion_rates[currencyTwoValue];
-      
-     rateElement.innerText = `1 ${currencyOneValue} = ${currencyRate} ${currencyTwoValue}`
-     amountElementTwo.value = (amountElementOne.value *currencyRate ).toFixed(2);     
-  })
+const displayDropdown =()=>{
+ fetch(`${apiUrl}/currencies`)
+.then(res => res.json())
+.then(currencies => {
+ for(const currency in currencies){       
+   let opt=  `<option value="${currency}"> ${currency} </option> `;
+   currencyElementOne.innerHTML += opt;
+   currencyElementTwo.innerHTML += opt;       
 }
 
+} )
+}
+
+displayDropdown()
+
+
+
+const calculate = ()=>{
+  const currOne = currencyElementOne.value ;
+  const currTwo = currencyElementTwo.value;
+
+  fetch(`${apiUrl}/latest?`)
+  .then(res => res.json())
+  .then(data => {
+      
+        if(currOne === currTwo){
+             rateElement.innerHTML = 'Enter valid input'
+        } else{
+         let rate = data.rates[currTwo]
+         console.log(data)
+         rateElement.innerHTML = `1 ${currOne} = ${rate} ${currTwo}`
+           amountElementTwo.value = (amountElementOne.value * rate).toFixed(2)
+ 
+        }
+       
+  })
+
+}
 
 swapElement.addEventListener('click',()=> {
     const temp = currencyElementOne.value;

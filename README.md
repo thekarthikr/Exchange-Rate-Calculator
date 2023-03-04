@@ -16,7 +16,7 @@ The Exchange Rate Calculator is built using HTML, SCSS, and JavaScript.
 The Exchange Rate Calculator was built using the following technologies:
 
 - HTML
-- SCSS
+- CSS
 - JavaScript
 
 ## API Used

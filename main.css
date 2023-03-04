@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  font-size: 1.6rem;
+}
+
+img {
+  width: 10rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100vh;
+}
+
+.title {
+  font-size: 4rem;
+  color: #4285f4;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: #0f9d58;
+  padding: 0.6rem 0.8rem;
+  font-size: 1.4rem;
+  color: white;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+.currency__swap {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.currency__rate {
+  color: #057c42;
+  font-weight: bold;
+}
+
+.currency input {
+  background: rgba(211, 211, 211, 0.159);
+  border-radius: 10px;
+  padding: 1rem;
+  border: none;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.767);
+  font-weight: bold;
+}
+
+.currency select {
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.currency select:focus {
+  outline: none;
+}
